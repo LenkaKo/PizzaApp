@@ -79,8 +79,32 @@
       /*add element to menu */
       menuContainer.appendChild(thisProduct.element);
     }
-  }
 
+    initAccordion(){
+      const thisProduct = this;
+      /* find clickble trigger (The element that should react to clicking) */
+      thisProduct.accordionTrigger = thisProduct.element.querySelector(select.menuProduct.clickable);
+
+      /* START: add event listener to clickable trigger on event click */
+      thisProduct.accordionTrigger.addEventListener('click', function(event) {
+        
+        /* prevent default action for event */
+        event.preventDefault();
+
+        /* find active product (product that has active class) */
+        const active = document.querySelector(select.all.menuProductsActive);
+
+        /* if there is active product and ti's not thiaProduct.element, remove class active for it */
+        if(active != null && active != thisProduct.element) {
+          active.classList.remove('active');
+        }
+
+        /* toggle active class on thisProduct.element */
+        thisProduct.element.classList.toggle('active');
+      });
+    }
+  }
+    
   const app = {
     initMenu: function (){
       const thisApp = this;
