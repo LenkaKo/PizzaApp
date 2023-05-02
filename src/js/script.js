@@ -447,6 +447,7 @@
         deliveryFee: thisCart.dom.deliveryFee,
         products: [],
       };
+
       const options = {
         method: 'POST',
         headers: {
@@ -458,7 +459,8 @@
         payload.products.push(prod.getData());
       }
       console.log('thisCart.payload: ', payload);
-      /*fetch(url, options)
+
+      fetch(url, options)
         .then(function (response) {
           console.log('response: ', response);
           return response.json();
@@ -466,7 +468,7 @@
         .then(function (parsedResponse) {
           console.log('parsedResponse: ', parsedResponse);
         });
-      console.log('payload: ', payload); */
+      console.log('payload: ', payload);
     }
   }
 
@@ -586,7 +588,7 @@
           thisApp.initMenu();
         });
 
-      //console.log('thisApp.data', JSON.stringify(thisApp.data));
+      console.log('thisApp.data', JSON.stringify(thisApp.data));
     },
 
     init: function(){
