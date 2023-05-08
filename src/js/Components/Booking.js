@@ -2,6 +2,8 @@ import { select, templates,} from '../settings.js';
 import AmountWidget from './AmountWidget.js';
 import DatePicker from './DatePicker.js';
 import HourPicker from './HourPicker.js';
+import utils from '../utils.js';
+
 
 class Booking {
   constructor(element) {
@@ -9,6 +11,8 @@ class Booking {
       
     thisBooking.render(element);
     thisBooking.initWidgets();
+    thisBooking.sendBooking();
+    thisBooking.startersArray = [];
   }
   
   render(element) {
@@ -25,6 +29,46 @@ class Booking {
     
     thisBooking.dom.datePicker = thisBooking.dom.wrapper.querySelector(select.widgets.datePicker.wrapper);
     thisBooking.dom.hourPicker = thisBooking.dom.wrapper.querySelector(select.widgets.hourPicker.wrapper);
+    
+    thisBooking.dom.starters = thisBooking.dom.wrapper.querySelectorAll(select.booking.starters);
+  }
+
+  makeBooked(date, hour, duration, table) {
+    const thisBooking = this;
+
+    if(typeof thisBooking.booked[date] == 'undefined') {
+      thisBooking.booked[date] = {};
+    }
+
+    const startHour = utils.hourToNumber(hour);
+
+    for (let hourBlock = startHour; hourBlock < startHour + duration; hourBlock += 0.5) {
+      // console.log('loop', hourBlock);
+      if(typeof thisBooking.booked[date][hourBlock] == 'undefined') {
+        thisBooking.booked[date][hourBlock] = [];
+      }
+
+      thisBooking.booked[date][hourBlock].push(table);
+    }
+  }
+
+  sendBooking() {
+    const thisBooking = this;
+
+    const payload = {
+      date: thisBooking.datePicker.value,
+      hour: thisBooking.hourPicker.value,
+      table: thisBooking.tablePicked,
+      duration: parseInt(thisBooking.dom.hoursAmount.querySelector('input').value),
+      ppl: parseInt(thisBooking.dom.peopleAmount.querySelector('input').value),
+      starters: []
+    };
+
+    for (let starter of thisBooking.dom.starters) {
+      if (starter.checked) {
+        payload.starters.push(starter.value);
+      }
+    }
   }
   
   initWidgets() {
@@ -42,6 +86,7 @@ class Booking {
     thisBooking.hourPicker = new HourPicker(thisBooking.dom.hoursAmount);
     thisBooking.dom.hourPicker.addEventListener('updated', function () {});
   }
+
 }
 
 export default Booking;
