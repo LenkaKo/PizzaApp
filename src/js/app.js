@@ -1,9 +1,31 @@
-import { settings, select, classNames, templates } from './settings.js';
+import { settings, select, classNames, } from './settings.js';
 import Product from './Components/Product.js';
 import Cart from './Components/Cart.js';
 import Booking from './Components/Booking.js';
+import Home from './Components/Home.js';
   
 const app = {
+  initHome: function() {
+    const thisApp = this;
+
+    // find home container
+    const homeWrapper = document.querySelector(select.containerOf.homePage);
+
+    // create new instance of Home class
+    thisApp.homePage = new Home(homeWrapper);
+
+    thisApp.homeLinks = document.querySelectorAll(select.home.links);
+
+    for (let link of thisApp.homeLinks){
+      link.addEventListener('click', function(event) {
+        event.preventDefault();
+        const linkHref = link.getAttribute('href').replace('#', '');
+
+        thisApp.activatePage(linkHref);
+      });
+    }
+  },
+
   initPages: function() {
     const thisApp = this;
 
@@ -48,6 +70,7 @@ const app = {
         link.getAttribute('href') == '#' + pageId
       );  
     }
+    
   },
   
   initMenu: function (){
@@ -102,16 +125,12 @@ const app = {
 
   init: function(){
     const thisApp = this;
-    console.log('*** App starting ***');
-    console.log('thisApp:', thisApp);
-    console.log('classNames:', classNames);
-    console.log('settings:', settings);
-    console.log('templates:', templates);
   
     thisApp.initData();
     thisApp.initCart();
     thisApp.initPages();
     thisApp.initBooking();
+    thisApp.initHome();
     thisApp.initMenu();
   },
 };

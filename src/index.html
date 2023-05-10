@@ -22,6 +22,7 @@
           <h2 class="logo__subtitle">the best homemade Italian food</h2>
         </div>
         <div class="main-nav">
+          <a href="#home">Home</a>
           <a href="#order">Order</a>
           <a href="#booking">Booking</a>
         </div>
@@ -63,6 +64,9 @@
   </header>
 
   <div id="pages">
+    <section id="home">
+      <div class="home-wrapper container"></div>
+    </section>
     <section id="order">
       <div id="product-list" class="product-list container"></div>
     </section>
@@ -70,6 +74,134 @@
       <div class="booking-wrapper container"></div>
     </section>
   </div>
+
+  <script id="template-home" type="text/x-handlebars-template">
+    <div class="main">
+      <div class="main__links">
+        <a href="#order" class="link-btn">
+          <div class="link-btn__wrapper">
+            <p class="main__title">order online</p>
+            <img src="./images/homeImages/pizza-1.jpg" alt="pizza" />
+          </div>
+        </a>
+        <a href="#booking" class="link-btn">
+          <div class="link-btn__wrapper">
+            <p class="main__title">book a table</p>
+            <img src="./images/homeImages/pizza-2.jpg" alt="table full of food" />
+          </div>
+        </a>
+      </div>
+      <div class="main__info">
+        <p class="main__title">opening hours:</p>
+        <p class="main__subtitle">tue-sun, 12pm - 12am</p>
+      </div>
+    </div>
+    <div class="main-carousel" data-flickity='{ "autoPlay": true }'>
+      <div class="carousel-cell">
+        <div class="carousel-cell__image">
+          <img src="./images/homeImages/pizza-3.jpg" alt="people dining out" />
+        </div>
+        <div class="carousel-cell__description">
+          <h1>Best service</h1>
+          <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <p class="italic">- Lorem ipsum</p>
+        </div>
+      </div>
+      <div class="carousel-cell">
+        <div class="carousel-cell__image">
+          <img src="./images/homeImages/pizza-3.jpg" alt="people dining out" />
+        </div>
+        <div class="carousel-cell__description">
+          <h1>Great venue</h1>
+          <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <p class="italic">- Lorem ipsum</p>
+        </div>
+      </div>
+      <div class="carousel-cell">
+        <div class="carousel-cell__image">
+          <img src="./images/homeImages/pizza-4.jpg" alt="people dining out" />
+        </div>
+        <div class="carousel-cell__description">
+          <h1>Good snacks</h1>
+          <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <p class="italic">- Lorem ipsum</p>
+        </div>
+      </div>
+      <div class="carousel-cell">
+        <div class="carousel-cell__image">
+          <img src="./images/homeImages/pizza-3.jpg" alt="people dining out" />
+        </div>
+        <div class="carousel-cell__description">
+          <h1>Delicious food</h1>
+          <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <p class="italic">- Lorem ipsum</p>
+        </div>
+      </div>
+    </div>
+    <div class="gallery">
+      <div class="gallery__image">
+        <div class="gallery__image__overlay">
+          <div class="gallery__image__overlay__icons">
+            <i class="fas fa-solid fa-heart"></i>
+            <i class="fas fa-solid fa-share"></i>
+          </div>
+        </div>
+        <img src="./images/homeImages/pizza-4.jpg" alt="starters" />
+      </div>
+      <div class="gallery__image">
+        <div class="gallery__image__overlay">
+          <div class="gallery__image__overlay__icons">
+            <i class="fas fa-solid fa-heart"></i>
+            <i class="fas fa-solid fa-share"></i>
+          </div>
+        </div>
+        <img src="./images/homeImages/pizza-5.jpg" alt="vegetable dish" />
+      </div>
+      <div class="gallery__image">
+        <div class="gallery__image__overlay">
+          <div class="gallery__image__overlay__icons">
+            <i class="fas fa-solid fa-heart"></i>
+            <i class="fas fa-solid fa-share"></i>
+          </div>
+        </div>
+        <img src="./images/homeImages/pizza-6.jpg" alt="pizza" />
+      </div>
+      <div class="gallery__image">
+        <div class="gallery__image__overlay">
+          <div class="gallery__image__overlay__icons">
+            <i class="fas fa-solid fa-heart"></i>
+            <i class="fas fa-solid fa-share"></i>
+          </div>
+        </div>
+        <img src="./images/homeImages/pizza-7.jpg" alt="open sign" />
+      </div>
+      <div class="gallery__image">
+        <div class="gallery__image__overlay">
+          <div class="gallery__image__overlay__icons">
+            <i class="fas fa-solid fa-heart"></i>
+            <i class="fas fa-solid fa-share"></i>
+          </div>
+        </div>
+        <img src="./images/homeImages/pizza-8.jpg" alt="pizza dough" />
+      </div>
+      <div class="gallery__image">
+        <div class="gallery__image__overlay">
+          <div class="gallery__image__overlay__icons">
+            <i class="fas fa-solid fa-heart"></i>
+            <i class="fas fa-solid fa-share"></i>
+          </div>
+        </div>
+        <img src="./images/homeImages/pizza-9.jpg" alt="shop window" />
+      </div>
+    </div>
+    <div class="gallery-link">
+      <a href="#">View more on Instagram</a>
+    </div>
+  </script>
 
     <script id="template-cart-product" type="text/x-handlebars-template">
       <li>
