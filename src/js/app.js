@@ -70,7 +70,6 @@ const app = {
         link.getAttribute('href') == '#' + pageId
       );  
     }
-    
   },
   
   initMenu: function (){
@@ -93,7 +92,7 @@ const app = {
 
     thisApp.productList.addEventListener('add-to-cart', function(e) {
       app.cart.add(e.detail.product.prepareCartProduct());
-      console.log(e.detail.product);
+      //console.log(e.detail.product);
     });
   },
       
