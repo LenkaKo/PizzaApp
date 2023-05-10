@@ -151,7 +151,7 @@ class Product{
       price: thisProduct.price,
       params: thisProduct.prepareCartProductParams(),
     };
-    return productSummary;
+    return (productSummary);
   }
 
   prepareCartProductParams() {
